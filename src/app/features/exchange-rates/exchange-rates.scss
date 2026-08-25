@@ -1,0 +1,38 @@
+.rates {
+  width: 100%;
+  max-width: 320px;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f2933;
+  font-family: sans-serif;
+
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+.rates__status {
+  color: #7b8794;
+  font-style: italic;
+}
+
+.rates__table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.5rem 0.25rem;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+  }
+
+  th:first-child,
+  td:first-child {
+    text-align: left;
+    font-weight: 600;
+  }
+}

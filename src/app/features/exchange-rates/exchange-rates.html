@@ -1,0 +1,26 @@
+<section class="rates">
+  <h2>Kursy walut</h2>
+
+  @if (loading()) {
+    <p class="rates__status">Ładowanie kursów...</p>
+  } @else {
+    <table class="rates__table">
+      <thead>
+        <tr>
+          <th>Waluta</th>
+          <th>Kupno</th>
+          <th>Sprzedaż</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (rate of rates(); track rate.currency) {
+          <tr>
+            <td>{{ rate.currency }}</td>
+            <td>{{ rate.buy | number: '1.2-2' }}</td>
+            <td>{{ rate.sell | number: '1.2-2' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>
