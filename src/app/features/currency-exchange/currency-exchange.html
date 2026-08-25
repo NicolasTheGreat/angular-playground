@@ -1,0 +1,39 @@
+<form class="exchange-form" [formGroup]="exchangeForm" (ngSubmit)="onSubmit()">
+  <h2>Wymiana walut</h2>
+
+  <div class="field">
+    <label for="buyCurrency">Waluta kupna</label>
+    <select id="buyCurrency" formControlName="buyCurrency">
+      @for (currency of currencies; track currency) {
+        <option [value]="currency">{{ currency }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="sellCurrency">Waluta sprzedaży</label>
+    <select id="sellCurrency" formControlName="sellCurrency">
+      @for (currency of currencies; track currency) {
+        <option [value]="currency">{{ currency }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="buyAmount">Kwota kupna</label>
+    <input id="buyAmount" type="number" step="0.01" min="0" formControlName="buyAmount" />
+    @if (exchangeForm.controls.buyAmount.invalid && exchangeForm.controls.buyAmount.touched) {
+      <span class="error">Podaj kwotę większą od 0.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="sellAmount">Kwota sprzedaży</label>
+    <input id="sellAmount" type="number" step="0.01" min="0" formControlName="sellAmount" />
+    @if (exchangeForm.controls.sellAmount.invalid && exchangeForm.controls.sellAmount.touched) {
+      <span class="error">Podaj kwotę większą od 0.</span>
+    }
+  </div>
+
+  <button type="submit" [disabled]="exchangeForm.invalid">Wymień</button>
+</form>
