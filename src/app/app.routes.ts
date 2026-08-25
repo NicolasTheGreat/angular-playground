@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { CurrencyExchange } from './features/currency-exchange/currency-exchange';
+import { Dashboard } from './features/dashboard/dashboard';
 
 export const routes: Routes = [
-  { path: '', component: CurrencyExchange },
+  { path: '', component: Dashboard },
 ];
