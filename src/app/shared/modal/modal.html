@@ -1,0 +1,14 @@
+@if (visible()) {
+  <div class="modal-backdrop" (click)="onClose()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <header class="modal-header">
+        <h2>{{ title() }}</h2>
+        <button type="button" class="modal-close" (click)="onClose()" aria-label="Zamknij">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+}
