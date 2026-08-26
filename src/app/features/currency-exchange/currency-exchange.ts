@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
-const CURRENCIES = ['PLN', 'USD', 'EUR', 'GBP', 'CHF'];
+import { ReactiveFormsModule } from '@angular/forms';
+import { CURRENCIES, CurrencyExchangeForm } from '../../core/services/currency-exchange-form.service';
 
 @Component({
   selector: 'app-currency-exchange',
@@ -12,14 +11,9 @@ const CURRENCIES = ['PLN', 'USD', 'EUR', 'GBP', 'CHF'];
 export class CurrencyExchange {
   protected readonly currencies = CURRENCIES;
 
-  private readonly formBuilder = inject(FormBuilder);
+  private readonly currencyExchangeForm = inject(CurrencyExchangeForm);
 
-  protected readonly exchangeForm = this.formBuilder.group({
-    buyCurrency: ['PLN', Validators.required],
-    sellCurrency: ['EUR', Validators.required],
-    buyAmount: [null as number | null, [Validators.required, Validators.min(0.01)]],
-    sellAmount: [null as number | null, [Validators.required, Validators.min(0.01)]],
-  });
+  protected readonly exchangeForm = this.currencyExchangeForm.build();
 
   protected onSubmit(): void {
     if (this.exchangeForm.invalid) {
