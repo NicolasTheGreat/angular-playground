@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { CurrencyExchange } from '../currency-exchange/currency-exchange';
-import { ExchangeRates } from '../exchange-rates/exchange-rates';
+import { MainSection } from '../main-section/main-section';
+import { SNACKBAR_MODE } from '../../core/tokens/snackbar-mode.token';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CurrencyExchange, ExchangeRates],
+  imports: [MainSection],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
+  providers: [{ provide: SNACKBAR_MODE, useValue: 'ERROR' }],
 })
 export class Dashboard {}
